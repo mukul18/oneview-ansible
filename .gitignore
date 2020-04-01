@@ -1,7 +1,6 @@
 inventory
 **/*.retry
 *.pyc
-oneview_config.json
 .idea
 examples/vars/config.yml
 .idea/

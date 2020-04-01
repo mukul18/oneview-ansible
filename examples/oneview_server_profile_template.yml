@@ -14,12 +14,12 @@
 # limitations under the License.
 ###
 ---
-- hosts: all
+- hosts: localhost
   vars:
     config: "{{ playbook_dir }}/oneview_config.json"
     server_profile_template_name: example_spt1
-    server_hardware_type_name: SY 480 Gen9 2
-    enclosure_group_name: SYN03_EC
+    server_hardware_type_name: SY 480 Gen10 1
+    enclosure_group_name: EG-SGH933VFW9 
     server_profile_name: RHEl76
   tasks:
     - name: Create a server profile template
@@ -28,7 +28,7 @@
         state: present
         data:
           name: "{{ server_profile_template_name }}"
-          serverProfileName: "{{ server_profile_name }}" # Optional - Server Profile to base this SPT on
+#          serverProfileName: "{{ server_profile_name }}" # Optional - Server Profile to base this SPT on
           serverHardwareTypeName: "{{ server_hardware_type_name }}"
           enclosureGroupName: "{{ enclosure_group_name }}"
         params:
@@ -51,20 +51,20 @@
           force: True # Supprted only for API version >= 600
       delegate_to: localhost
 
-    - name: Delete the Server Profile Template
-      oneview_server_profile_template:
-        config: "{{ config }}"
-        state: absent
-        data:
-          name: "{{ server_profile_template_name }}"
-        params:
-          force: True # Supprted only for API version >= 600
-      delegate_to: localhost
-
-    - name: Do nothing when Server Profile Template is absent
-      oneview_server_profile_template:
-        config: "{{ config }}"
-        state: absent
-        data:
-          name: "{{ server_profile_template_name }}"
-      delegate_to: localhost
+#    - name: Delete the Server Profile Template
+#      oneview_server_profile_template:
+#        config: "{{ config }}"
+#        state: absent
+#        data:
+#          name: "{{ server_profile_template_name }}"
+#        params:
+#          force: True # Supprted only for API version >= 600
+#      delegate_to: localhost
+#
+#    - name: Do nothing when Server Profile Template is absent
+#      oneview_server_profile_template:
+#        config: "{{ config }}"
+#        state: absent
+#        data:
+#          name: "{{ server_profile_template_name }}"
+###      delegate_to: localhost

@@ -1,9 +1,8 @@
 {
-  "ip": "10.3.0.220",
+  "ip": "10.188.0.160",
   "credentials": {
-    "userName": "v0020usradmin",
-    "authLoginDomain": "",
-    "password": "HP!nvent123"
+    "userName": "v191usradmin",
+    "password": "HP!nvent"
   },
   "api_version": 1200
 }
